@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>商品清單</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                名稱：{{ item.name }} - 價格：${{ item.price }}
+                <a href="{{ url_for('delete_item', item_id=item.id) }}">刪除</a>
+            </li>
+        {% else %}
+            <li>目前沒有商品。</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
